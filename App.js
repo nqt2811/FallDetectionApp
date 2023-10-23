@@ -1,20 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Fragment } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet, Text, View, Button, SafeAreaView } from 'react-native';
+import { WelcomeScreen, MainPage, Stats, QRScreen, Advice } from './screens';
+import { useNavigation } from '@react-navigation/native';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='WelcomeScreen'>
+        <Stack.Screen name="WelcomeScreen" options={{headerShown: false}} component={WelcomeScreen} />
+        <Stack.Screen name="MainPage" options={{headerShown: false}} component={MainPage} />
+        <Stack.Screen name="QRScreen" options={{headerShown: false}} component={QRScreen} />
+        <Stack.Screen name="Advice" options={{headerShown: false}} component={Advice} />
+        <Stack.Screen name="Stats" options={{headerShown: false}} component={Stats} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
