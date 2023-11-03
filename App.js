@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='MainPage'>
+      <Stack.Navigator initialRouteName='WelcomeScreen'>
         <Stack.Screen name="WelcomeScreen" options={{headerShown: false}} component={WelcomeScreen} />
         <Stack.Screen name="MainPage" options={{headerShown: false}} component={MainPage} />
         <Stack.Screen name="QRScreen" options={{headerShown: false}} component={QRScreen} />
